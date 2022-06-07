@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DancingGoat", "DancingGoat/DancingGoat.csproj", "{1F46A4EC-6A91-4F78-8B2B-5286C41414D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1f46a4ec-6a91-4f78-8b2b-5286c41414d9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1f46a4ec-6a91-4f78-8b2b-5286c41414d9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1f46a4ec-6a91-4f78-8b2b-5286c41414d9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1f46a4ec-6a91-4f78-8b2b-5286c41414d9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6500213-6CF9-462C-B95D-DCF91FC64889}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="EnsureCmsResources" AfterTargets="Build">
+    <PropertyGroup Condition=" '$(OutputType)' == 'Exe' Or '$(OutputType)' == 'WinExe' ">
+      <CmsResourcesDestinationFolder>$(TargetDir)</CmsResourcesDestinationFolder>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(OutputType)' == 'Library' And '$(WebProjectOutputDir)' != '' ">
+      <CmsResourcesDestinationFolder>$(ProjectDir)</CmsResourcesDestinationFolder>
+    </PropertyGroup>
+    <ItemGroup>
+      <CmsResources Include="$(MSBuildThisFileDirectory)CMSResources\**\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(CmsResources)" DestinationFolder="$(CmsResourcesDestinationFolder)CMSResources\%(RecursiveDir)" SkipUnchangedFiles="true" Condition=" '$(CmsResourcesDestinationFolder)' != '' " />
+  </Target>
+  <PropertyGroup>
+    <CopyAllFilesToSingleFolderForPackageDependsOn>
+      CollectCmsResources;
+      $(CopyAllFilesToSingleFolderForPackageDependsOn);
+    </CopyAllFilesToSingleFolderForPackageDependsOn>
+    <CopyAllFilesToSingleFolderForMsdeployDependsOn>
+      CollectCmsResources;
+      $(CopyAllFilesToSingleFolderForMsdeployDependsOn);
+    </CopyAllFilesToSingleFolderForMsdeployDependsOn>
+  </PropertyGroup>
+  <Target Name="CollectCmsResources">
+    <ItemGroup>
+      <_CmsResources Include="CMSResources\**\*" />
+      <FilesForPackagingFromProject Include="%(_CmsResources.Identity)">
+        <DestinationRelativePath>CMSResources\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+      </FilesForPackagingFromProject>
+    </ItemGroup>
+  </Target>
+</Project>
